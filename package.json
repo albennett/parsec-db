@@ -10,6 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/albennett/parsec-db.git"
   },
+  "eslintConfig": {
+    "env": {
+      "mocha": true,
+      "node": true,
+      "es6": true
+    }
+  },
   "author": "Amy Lee Bennett <amyleeannebennett@gmail.com> (https://www.amylee.co/)",
   "license": "MIT",
   "bugs": {
