@@ -1,0 +1,24 @@
+{
+  "name": "parsec-db",
+  "version": "1.0.0",
+  "description": "db for customers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albennett/parsec-db.git"
+  },
+  "author": "Amy Lee Bennett <amyleeannebennett@gmail.com> (https://www.amylee.co/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/albennett/parsec-db/issues"
+  },
+  "homepage": "https://github.com/albennett/parsec-db#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.3"
+  }
+}
