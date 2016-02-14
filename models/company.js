@@ -98,6 +98,12 @@ module.exports.updateCompany = function(id, company, options, callback){
   Company.findOneAndUpdate(query, update, options, callback);
 }
 
+// Remove Company
+module.exports.removeCompany = function(id, callback){
+  var query = {_id: id};
+  Company.remove(query, callback);
+}
+
 // {
 //     "company": "nss",
 //     "email": "n@s.com",

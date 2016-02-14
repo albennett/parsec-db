@@ -47,4 +47,15 @@ router.put('/:id', function(req, res){
   });
 });
 
+// Delete Company
+router.delete('/:id', function(req, res){
+  var id = req.params.id;
+  Company.removeCompany(id, function(err, company){
+    if(err){
+      res.send(err);
+    }
+    res.json(company);
+  });
+});
+
 module.exports = router;

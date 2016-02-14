@@ -47,6 +47,17 @@ router.put('/:id', function(req, res){
   });
 });
 
+// Delete Customer
+router.delete('/:id', function(req, res){
+  var id = req.params.id;
+  Customer.removeCustomer(id, function(err, customer){
+    if(err){
+      res.send(err);
+    }
+    res.json(customer);
+  });
+});
+
 // {
 //     "first_name": "Amylee",
 //     "last_name": "Benn",
