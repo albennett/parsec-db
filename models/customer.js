@@ -82,3 +82,9 @@ module.exports.removeCustomer = function(id, callback){
   Customer.remove(query, callback);
 }
 
+// Get Customer Invoices
+module.exports.getCompanyCustomers = function(company_id, callback, limit){
+  var query = {company: company_id};
+  Customer.find(query, callback).limit(limit).populate('company').sort([['createdAt', 'ascending']]);
+}
+

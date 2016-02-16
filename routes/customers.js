@@ -58,6 +58,17 @@ router.delete('/:id', function(req, res){
   });
 });
 
+// Get All Customers For a Single Company
+router.get('/company/:company_id', function(req, res){
+  var company_id = req.params.company_id;
+  Customer.getCompanyCustomers(company_id, function(err, customers){
+    if(err){
+      res.send(err);
+    }
+    res.json(customers);
+  });
+});
+
 // {
 //     "first_name": "Amylee",
 //     "last_name": "Benn",
