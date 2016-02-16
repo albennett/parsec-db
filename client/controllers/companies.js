@@ -20,6 +20,7 @@ myApp.controller('CompaniesController', ['$scope', '$http','$location','$routePa
   $scope.getCompanyCustomers = function(){
     const id = $routeParams.id;
     $http.get('/api/customers/company/'+id).success(function(response){
+      console.log("getcompanycustomers", response);
       $scope.company_customers = response;
     });
   }

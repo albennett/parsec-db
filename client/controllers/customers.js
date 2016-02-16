@@ -14,6 +14,10 @@ myApp.controller('CustomersController', ['$scope', '$http','$location','$routePa
     var id = $routeParams.id;
     $http.get('/api/customers/'+id).success(function(response){
       $scope.customer= response;
+      console.log("response", response);
+          //Fill Select
+      $scope.customer.company_id = response.company._id;
+      $scope.customer.status = response.status;
     });
   }
 
@@ -29,15 +33,15 @@ myApp.controller('CustomersController', ['$scope', '$http','$location','$routePa
     });
   }
 
-  // $scope.updateCustomer = function(){
-  //   $http.put('/api/customers/'+$scope.customer._id,$scope.customer).success(function(response){
-  //     window.location.href='/#customers';
-  //   });
-  // }
+  $scope.updateCustomer = function(){
+    $http.put('/api/customers/'+$scope.customer._id,$scope.customer).success(function(response){
+      window.location.href='/#customers';
+    });
+  }
 
-  // $scope.deleteCustomer = function(id){
-  //   $http.delete('/api/customers/'+id).success(function(response){
-  //     window.location.href='/#customers';
-  //   });
-  // }
+  $scope.deleteCustomer = function(id){
+    $http.delete('/api/customers/'+id).success(function(response){
+      window.location.href='/#customers';
+    });
+  }
 }]);

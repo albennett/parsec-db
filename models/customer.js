@@ -42,7 +42,8 @@ module.exports.getCustomers = function(callback, limit){
 
 // Get customer
 module.exports.getCustomerById = function(id, callback){
-  Customer.findById(id, callback);
+  var query = {_id: id};
+  Customer.findById(query, callback).populate('company');
 }
 
 // Add Customer
