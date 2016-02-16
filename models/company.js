@@ -40,7 +40,7 @@ company:{
   },
 });
 
-const Company = module.exports = mongoose.model('Company', companySchema);
+var Company = module.exports = mongoose.model('Company', companySchema);
 
 // Get customers
 module.exports.getCompanies = function(callback, limit){

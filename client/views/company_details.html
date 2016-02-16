@@ -1,0 +1,43 @@
+<div ng-init="getCompany()">
+  <!-- <img class="pull-right img-small" src="{{customer.logo_url}}"> -->
+  <div class="clearfix"></div>
+  <h2 class="sub-header">{{company.company}}</h2>
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Company: </strong> {{company.company}}</li>
+    <li class="list-group-item"><strong>Email: </strong> {{company.email}}</li>
+    <li class="list-group-item"><strong>Phone: </strong> {{company.phone}}</li>
+    <li class="list-group-item"><strong>Web: </strong> {{company.web}}</li>
+    <li class="list-group-item"><strong>Population: </strong> {{company.population}}</li>
+    <li class="list-group-item"><strong>Brand: </strong> {{company.brand}}</li>
+    <li class="list-group-item"><strong>Reseller: </strong> {{company.reseller}}</li>
+    <li class="list-group-item"><strong>Status: </strong> {{company.status}}</li>
+    <li class="list-group-item"><strong>Street Address: </strong> {{company.address.street}}</li>
+    <li class="list-group-item"><strong>City: </strong> {{company.address.city}}</li>
+    <li class="list-group-item"><strong>State: </strong> {{company.address.state}}</li>
+    <li class="list-group-item"><strong>Zip: </strong> {{company.address.zip}}</li>
+  </ul>
+  <br>
+  <h3>Customers</h3>
+  <table class="table table-striped" ng-init="getCompanyCustomers()">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="customer in company_customers">
+              <td>{{customer._id}}</td>
+                <td>{{customer.first_name}} {{customer.last_name}}</td>
+                <td>{{customer.role}}</td>
+                <td>{{customer.email}}</td>
+                <td><a href="#/customers/details/{{customer._id}}" class="btn btn-primary">Details</a> <a href="#/customers/edit/{{customer._id}}" class="btn btn-default">Edit</a> <button id="deleteCustomer" class="btn btn-danger">Delete</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+ </div>
+
+
