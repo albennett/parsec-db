@@ -106,6 +106,18 @@ body {
   border-radius: 50%;
 }
 
-.navbar-inverse {
-  background-color: #333333;
+/*.navbar-inverse {
+  background-color: #fd4f4e;
 }
+
+.navbar-inverse .navbar-brand{
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+a{
+  color: black ;
+}*/
