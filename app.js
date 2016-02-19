@@ -22,7 +22,6 @@ const MONGODB_URL = `mongodb://${MONGODB_AUTH}${MONGODB_HOST}:${MONGODB_PORT}/${
 
 // Mongoose Connect
 // mongoose.connect('mongodb://localhost/parsec');
-// const db = mongoose.connection;
 
 app.use(express.static(__dirname+'/client'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,6 +35,7 @@ app.use('/api/customers', customers);
 app.use('/api/companies', companies);
 
 mongoose.connect(MONGODB_URL);
+const db = mongoose.connection;
 
 mongoose.connection.on('open', () => {
   app.listen(PORT, () => {
