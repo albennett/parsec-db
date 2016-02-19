@@ -40,7 +40,7 @@ var Customer = module.exports = mongoose.model('Customer', customerSchema);
 
 // Get customers
 module.exports.getCustomers = function(callback, limit){
-  Customer.find(callback).limit(limit).sort([['first_name', 'ascending']]);
+  Customer.find(callback).limit(limit).populate('company').sort([['first_name', 'ascending']]);
 }
 
 // Get customer
@@ -87,7 +87,7 @@ module.exports.removeCustomer = function(id, callback){
   Customer.remove(query, callback);
 }
 
-// Get Customer Invoices
+// Get Customer Companies
 module.exports.getCompanyCustomers = function(company_id, callback, limit){
   var query = {company: company_id};
   Customer.find(query, callback).limit(limit).populate('company').sort([['createdAt', 'ascending']]);
