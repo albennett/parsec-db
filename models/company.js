@@ -38,6 +38,9 @@ company:{
     type: Date,
     default: Date.now
   },
+  notes:{
+    type:String
+  }
 });
 
 var Company = module.exports = mongoose.model('Company', companySchema);
@@ -70,7 +73,8 @@ module.exports.addCompany = function(company, callback){
       state: company.address.state,
       zip: company.address.zip,
       type: company.shippingorphysical
-    }
+    },
+    notes: company.notes
   }
   Company.create(add, callback);
 }
@@ -93,7 +97,8 @@ module.exports.updateCompany = function(id, company, options, callback){
       state: company.address.state,
       zip: company.address.zip,
       type: company.shippingorphysical
-    }
+    },
+    notes: company.notes
   }
   Company.findOneAndUpdate(query, update, options, callback);
 }
@@ -103,23 +108,3 @@ module.exports.removeCompany = function(id, callback){
   var query = {_id: id};
   Company.remove(query, callback);
 }
-
-// {
-//     "company": "nss",
-//     "email": "n@s.com",
-//     "phone": "222-222-2222",
-//     "web": "nss.com",
-//     "population": "30,000",
-//     "brand": "nike",
-//     "reseller": "kellogs",
-//     "phone": "333-333-3333",
-//     "status": "active",
-//     "address": {
-//       "street": "3233 lala land rd."
-//       "city": "Atlanta",
-//       "state": "GA",
-//       "zip": "32323",
-//       "type": "physical address"
-//     }
-// }
-

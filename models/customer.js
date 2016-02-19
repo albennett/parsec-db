@@ -31,6 +31,9 @@ var customerSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  notes:{
+    type:String
+  }
 });
 
 var Customer = module.exports = mongoose.model('Customer', customerSchema);
@@ -56,6 +59,7 @@ module.exports.addCustomer = function(customer, callback){
     phone: customer.phone,
     role: customer.role,
     status: customer.status,
+    notes: customer.notes
   }
   Customer.create(add, callback);
 }
@@ -72,6 +76,7 @@ module.exports.updateCustomer = function(id, customer, options, callback){
     phone: customer.phone,
     role: customer.role,
     status: customer.status,
+    notes: customer.notes
   }
   Customer.findOneAndUpdate(query, update, options, callback);
 }

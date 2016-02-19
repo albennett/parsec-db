@@ -69,14 +69,4 @@ router.get('/company/:company_id', function(req, res){
   });
 });
 
-// {
-//     "first_name": "Amylee",
-//     "last_name": "Benn",
-//     "company": "56c0e78a4256f689c495c721",
-//     "email": "a@c.com",
-//     "phone": "444-444-4444",
-//     "role": "student",
-//     "status": "active"
-//   }
-
 module.exports = router;
