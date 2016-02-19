@@ -105,3 +105,7 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.navbar-inverse {
+  background-color: #333333;
+}
