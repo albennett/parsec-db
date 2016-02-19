@@ -1,12 +1,14 @@
 <div ng-init="getCustomer()">
   <div class="row">
     <div class="col-md-8">
-      <h3> {{customer.company.company}}</h3>
+      <h3>Customer Info</h3>
       <ul class="list-group">
-        <li class="list-group-item">{{customer.company.address.street}}</li>
-        <li class="list-group-item">{{customer.company.address.city}}</li>
-        <li class="list-group-item">{{customer.company.address.state}}</li>
-        <li class="list-group-item">{{customer.company.address.zip}}</li>
+        <li class="list-group-item">Name: {{customer.first_name}} {{customer.last_name}}</li>
+        <li class="list-group-item">Email: {{customer.email}}</li>
+        <li class="list-group-item">Role: {{customer.role}}</li>
+        <li class="list-group-item">Status: {{customer.status}}</li>
+        <li class="list-group-item">Phone: {{customer.phone}}</li>
+        <li class="list-group-item">Notes: {{customer.notes}}</li>
       </ul>
     </div>
     <div class="col-md-4">
