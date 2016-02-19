@@ -14,7 +14,6 @@ myApp.controller('CustomersController', ['$scope', '$http','$location','$routePa
     var id = $routeParams.id;
     $http.get('/api/customers/'+id).success(function(response){
       $scope.customer= response;
-      console.log("response", response);
           //Fill Select
       $scope.customer.company_id = response.company._id;
       $scope.customer.status = response.status;
