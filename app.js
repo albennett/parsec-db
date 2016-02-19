@@ -6,11 +6,26 @@ const mongoose = require('mongoose');
 const customers = require('./routes/customers');
 const companies = require('./routes/companies');
 
+const PORT = process.env.PORT || 3000;
+
+const MONGODB_HOST = process.env.MONGODB_HOST || 'localhost';
+const MONGODB_PORT = process.env.MONGODB_PORT || 27017;
+const MONGODB_USER = process.env.MONGODB_USER || '';
+const MONGODB_PASS = process.env.MONGODB_PASS || '';
+const MONGODB_NAME = process.env.MONGODB_NAME || 'parsec';
+
+const MONGODB_AUTH = MONGODB_USER
+  ? `${MONGODB_USER}:${MONGODB_PASS}@`
+  : '';
+
+const MONGODB_URL = `mongodb://${MONGODB_AUTH}${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_NAME}`;
+
 // Mongoose Connect
-mongoose.connect('mongodb://localhost/parsec');
-const db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/parsec');
+// const db = mongoose.connection;
 
 app.use(express.static(__dirname+'/client'));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res){
@@ -20,5 +35,13 @@ app.get('/', function(req, res){
 app.use('/api/customers', customers);
 app.use('/api/companies', companies);
 
-app.listen(3000);
-console.log('Started on port 3000...');
+mongoose.connect(MONGODB_URL);
+
+mongoose.connection.on('open', () => {
+  app.listen(PORT, () => {
+    console.log(`Node.js server started. Listening on port ${PORT}`);
+  });
+});
+
+// app.listen(3000);
+// console.log('Started on port 3000...');
