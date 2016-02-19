@@ -108,16 +108,17 @@ body {
 
 /*.navbar-inverse {
   background-color: #fd4f4e;
-}
+}*/
 
 .navbar-inverse .navbar-brand{
-  color: white;
+  color: #fd4f4e;;
 }
 
-.navbar-inverse .navbar-nav > li > a {
+/*.navbar-inverse .navbar-nav > li > a {
   color: white;
 }
 
 a{
   color: black ;
-}*/
+}
+*/
