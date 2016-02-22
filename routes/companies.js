@@ -1,12 +1,13 @@
-var express = require('express');
-var router = express.Router();
+'use strict'
+const express = require('express');
+const router = express.Router();
 
 Contact = require('../models/contact.js');
 Company = require('../models/company.js');
 
 // Get All Companies
-router.get('/', function(req, res){
-  Company.getCompanies(function(err, companies){
+router.get('/', (req, res) => {
+  Company.getCompanies((err, companies) => {
     if(err){
       res.send(err);
     }
@@ -15,8 +16,8 @@ router.get('/', function(req, res){
 });
 
 // Get Single Company
-router.get('/:id', function(req, res){
-  Company.getCompanyById(req.params.id, function(err, company){
+router.get('/:id', (req, res) => {
+  Company.getCompanyById(req.params.id, (err, company) => {
     if(err){
       res.send(err);
     }
@@ -25,9 +26,9 @@ router.get('/:id', function(req, res){
 });
 
 // Add Company
-router.post('/', function(req, res){
-  var company = req.body;
-  Company.addCompany(company, function(err, company){
+router.post('/', (req, res) => {
+  const company = req.body;
+  Company.addCompany(company, (err, company) => {
     if(err){
       res.send(err);
     }
@@ -36,10 +37,10 @@ router.post('/', function(req, res){
 });
 
 // Update Company
-router.put('/:id', function(req, res){
-  var id = req.params.id;
-  var company = req.body;
-  Company.updateCompany(id, company, {}, function(err, company){
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  const company = req.body;
+  Company.updateCompany(id, company, {}, (err, company) => {
     if(err){
       res.send(err);
     }
@@ -48,9 +49,9 @@ router.put('/:id', function(req, res){
 });
 
 // Delete Company
-router.delete('/:id', function(req, res){
-  var id = req.params.id;
-  Company.removeCompany(id, function(err, company){
+router.delete('/:id', (req, res) => {
+  const id = req.params.id;
+  Company.removeCompany(id, (err, company) => {
     if(err){
       res.send(err);
     }

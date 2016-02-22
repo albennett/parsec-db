@@ -1,3 +1,5 @@
+'use strict'
+
 const mongoose = require('mongoose');
 // Company Schema
 const companySchema = mongoose.Schema({
@@ -43,21 +45,21 @@ company:{
   }
 });
 
-var Company = module.exports = mongoose.model('Company', companySchema);
+const Company = module.exports = mongoose.model('Company', companySchema);
 
 // Get companies
-module.exports.getCompanies = function(callback, limit){
+module.exports.getCompanies = (callback, limit) => {
   Company.find(callback).limit(limit).sort([['company', 'ascending']]);
 }
 
 // Get company
-module.exports.getCompanyById = function(id, callback){
+module.exports.getCompanyById = (id, callback) => {
   Company.findById(id, callback);
 }
 
 // Add Company
-module.exports.addCompany = function(company, callback){
-  var add = {
+module.exports.addCompany = (company, callback) => {
+  const add = {
     company: company.company,
     email: company.email,
     phone: company.phone,
@@ -79,7 +81,7 @@ module.exports.addCompany = function(company, callback){
   Company.create(add, callback);
 }
 //update company
-module.exports.updateCompany = function(id, company, options, callback){
+module.exports.updateCompany = (id, company, options, callback) => {
   const query = {_id: id};
   const update = {
     company: company.company,
@@ -104,7 +106,7 @@ module.exports.updateCompany = function(id, company, options, callback){
 }
 
 // Remove Company
-module.exports.removeCompany = function(id, callback){
-  var query = {_id: id};
+module.exports.removeCompany = (id, callback) => {
+  const query = {_id: id};
   Company.remove(query, callback);
 }

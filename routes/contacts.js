@@ -5,8 +5,8 @@ Contact = require('../models/contact.js');
 Company = require('../models/company.js');
 
 // Get All Companies
-router.get('/', function(req, res){
-  Contact.getContacts(function(err, contacts){
+router.get('/', (req, res) => {
+  Contact.getContacts((err, contacts) => {
     if(err){
       res.send(err);
     }
@@ -15,8 +15,8 @@ router.get('/', function(req, res){
 });
 
 // Get Single contact
-router.get('/:id', function(req, res){
-  Contact.getContactById(req.params.id, function(err, contact){
+router.get('/:id', (req, res) => {
+  Contact.getContactById(req.params.id, (err, contact) => {
     if(err){
       res.send(err);
     }
@@ -25,9 +25,9 @@ router.get('/:id', function(req, res){
 });
 
 // Add contact
-router.post('/', function(req, res){
+router.post('/', (req, res) => {
   const contact = req.body;
-  Contact.addContact(contact, function(err, contact){
+  Contact.addContact(contact, (err, contact) => {
     if(err){
       res.send(err);
     }
@@ -36,10 +36,10 @@ router.post('/', function(req, res){
 });
 
 // Update contact
-router.put('/:id', function(req, res){
+router.put('/:id', (req, res) => {
   const id = req.params.id;
   const contact = req.body;
-  Contact.updateContact(id, contact, {}, function(err, contact){
+  Contact.updateContact(id, contact, {}, (err, contact) => {
     if(err){
       res.send(err);
     }
@@ -48,9 +48,9 @@ router.put('/:id', function(req, res){
 });
 
 // Delete contact
-router.delete('/:id', function(req, res){
+router.delete('/:id', (req, res) => {
   var id = req.params.id;
-  Contact.removeContact(id, function(err, contact){
+  Contact.removeContact(id, (err, contact) => {
     if(err){
       res.send(err);
     }
@@ -59,9 +59,9 @@ router.delete('/:id', function(req, res){
 });
 
 // Get All contacts For a Single Company
-router.get('/company/:company_id', function(req, res){
+router.get('/company/:company_id', (req, res) => {
   var company_id = req.params.company_id;
-  Contact.getCompanyContacts(company_id, function(err, contacts){
+  Contact.getCompanyContacts(company_id, (err, contacts) => {
     if(err){
       res.send(err);
     }

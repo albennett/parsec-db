@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
+'use strict'
+const mongoose = require('mongoose');
 
 // Contact Schema
-var contactSchema = mongoose.Schema({
+const contactSchema = mongoose.Schema({
   company: {
     type: mongoose.Schema.Types.ObjectId,
         ref: 'Company'
@@ -35,22 +36,22 @@ var contactSchema = mongoose.Schema({
   }
 });
 
-var Contact = module.exports = mongoose.model('Contact', contactSchema);
+const Contact = module.exports = mongoose.model('Contact', contactSchema);
 
 // Get contacts
-module.exports.getContacts = function(callback, limit){
+module.exports.getContacts = (callback, limit) => {
   Contact.find(callback).limit(limit).populate('company').sort([['first_name', 'ascending']]);
 }
 
 // Get contact
-module.exports.getContactById = function(id, callback){
-  var query = {_id: id};
+module.exports.getContactById = (id, callback) => {
+  const query = {_id: id};
   Contact.findById(query, callback).populate('company');
 }
 
 // Add contact
-module.exports.addContact = function(contact, callback){
-  var add = {
+module.exports.addContact = (contact, callback) => {
+  const add = {
     first_name: contact.first_name,
     last_name: contact.last_name,
     company: contact.company_id,
@@ -65,9 +66,9 @@ module.exports.addContact = function(contact, callback){
 
 
 // Update contact
-module.exports.updateContact = function(id, contact, options, callback){
-  var query = {_id: id};
-  var update = {
+module.exports.updateContact = (id, contact, options, callback) => {
+  const query = {_id: id};
+  const update = {
     first_name: contact.first_name,
     last_name: contact.last_name,
     company: contact.company_id,
@@ -81,14 +82,14 @@ module.exports.updateContact = function(id, contact, options, callback){
 }
 
 // Remove contact
-module.exports.removeContact = function(id, callback){
-  var query = {_id: id};
+module.exports.removeContact = (id, callback) => {
+  const query = {_id: id};
   Contact.remove(query, callback);
 }
 
 // Get contact Companies
-module.exports.getCompanyContacts = function(company_id, callback, limit){
-  var query = {company: company_id};
+module.exports.getCompanyContacts = (company_id, callback, limit) => {
+  const query = {company: company_id};
   Contact.find(query, callback).limit(limit).populate('company').sort([['createdAt', 'ascending']]);
 }
 
