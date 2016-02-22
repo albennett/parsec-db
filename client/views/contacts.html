@@ -1,0 +1,24 @@
+<h2 class="sub-header">Contacts</h2>
+<div class="table-responsive" ng-init="getContacts()">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="contact in contacts">
+        <td>{{contact._id}}</td>
+        <td>{{contact.first_name}} {{contact.last_name}}</td>
+        <td>{{contact.company.company}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.role}}</td>
+        <td><a href="#/contacts/details/{{contact._id}}" class="btn btn-primary">Details</a> <a href="#/contacts/edit/{{contact._id}}" class="btn btn-default">Edit</a> <button ng-click="deleteContact(contact._id)" class="btn btn-danger">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

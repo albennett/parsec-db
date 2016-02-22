@@ -1,16 +1,16 @@
 <h2 class="sub-header">Add Contact</h2>
-<form ng-submit="addCustomer()" ng-init="getCompanies()">
+<form ng-submit="addContact()" ng-init="getCompanies()">
    <div class="form-group">
     <label>First Name</label>
-    <input type="text" class="form-control" name="first_name" ng-model="customer.first_name" placeholder="First Name">
+    <input type="text" class="form-control" name="first_name" ng-model="contact.first_name" placeholder="First Name">
   </div>
   <div class="form-group">
     <label>Last Name</label>
-    <input type="text" class="form-control" ng-model="customer.last_name" name="last_name" placeholder="Last Name">
+    <input type="text" class="form-control" ng-model="contact.last_name" name="last_name" placeholder="Last Name">
   </div>
   <div class="form-group">
     <label>Company</label>
-    <select class="form-control" ng-model="customer.company_id">
+    <select class="form-control" ng-model="contact.company_id">
       <option ng-repeat="company in companies" value="{{company._id}}">
         {{company.company}}
       </option>
@@ -18,26 +18,26 @@
   </div>
   <div class="form-group">
     <label>Email</label>
-    <input type="text" class="form-control" name="email" ng-model="customer.email"placeholder="Email">
+    <input type="text" class="form-control" name="email" ng-model="contact.email"placeholder="Email">
   </div>
   <div class="form-group">
     <label>Phone</label>
-    <input type="text" class="form-control" name="due" ng-model="customer.phone"placeholder="Phone">
+    <input type="text" class="form-control" name="due" ng-model="contact.phone"placeholder="Phone">
   </div>
   <div class="form-group">
     <label>Role</label>
-    <input type="text" class="form-control" name="due" ng-model="customer.role"placeholder="Role">
+    <input type="text" class="form-control" name="due" ng-model="contact.role"placeholder="Role">
   </div>
   <div class="form-group">
     <label>Status</label>
-    <select class="form-control" ng-model="customer.status">
+    <select class="form-control" ng-model="contact.status">
       <option value="Active">Active</option>
       <option value="Inactive">Inactive</option>
     </select>
   </div>
   <div class="form-group">
     <label>Notes</label>
-    <textarea type="text" class="form-control" name="notes" ng-model="customer.notes" placeholder="Notes"></textarea>
+    <textarea type="text" class="form-control" name="notes" ng-model="contact.notes" placeholder="Notes"></textarea>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

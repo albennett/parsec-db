@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-Customer = require('../models/customer.js');
+Contact = require('../models/contact.js');
 Company = require('../models/company.js');
 
 // Get All Companies

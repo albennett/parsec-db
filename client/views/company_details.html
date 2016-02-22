@@ -1,5 +1,5 @@
 <div ng-init="getCompany()">
-  <!-- <img class="pull-right img-small" src="{{customer.logo_url}}"> -->
+  <!-- <img class="pull-right img-small" src="{{contact.logo_url}}"> -->
   <div class="clearfix"></div>
   <h2 class="sub-header">{{company.company}}</h2>
   <ul class="list-group">
@@ -19,7 +19,7 @@
   </ul>
   <br>
   <h3>Contacts</h3>
-  <table class="table table-striped" ng-init="getCompanyCustomers()">
+  <table class="table table-striped" ng-init="getCompanyContacts()">
           <thead>
             <tr>
               <th>#</th>
@@ -29,12 +29,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="customer in company_customers">
-              <td>{{customer._id}}</td>
-                <td>{{customer.first_name}} {{customer.last_name}}</td>
-                <td>{{customer.role}}</td>
-                <td>{{customer.email}}</td>
-                <td><a href="#/customers/details/{{customer._id}}" class="btn btn-primary">Details</a> <a href="#/customers/edit/{{customer._id}}" class="btn btn-default">Edit</a> <button id="deleteCustomer" class="btn btn-danger">Delete</a></td>
+            <tr ng-repeat="contact in company_contacts">
+              <td>{{contact._id}}</td>
+                <td>{{contact.first_name}} {{contact.last_name}}</td>
+                <td>{{contact.role}}</td>
+                <td>{{contact.email}}</td>
+                <td><a href="#/contacts/details/{{contact._id}}" class="btn btn-primary">Details</a> <a href="#/contacts/edit/{{contact._id}}" class="btn btn-default">Edit</a> <button id="deleteContact" class="btn btn-danger">Delete</a></td>
             </tr>
           </tbody>
         </table>

@@ -17,11 +17,10 @@ myApp.controller('CompaniesController', ['$scope', '$http','$location','$routePa
     });
   }
 
-  $scope.getCompanyCustomers = function(){
+  $scope.getCompanyContacts = function(){
     const id = $routeParams.id;
-    $http.get('/api/customers/company/'+id).success(function(response){
-      console.log("getcompanycustomers", response);
-      $scope.company_customers = response;
+    $http.get('/api/contacts/company/'+id).success(function(response){
+      $scope.company_contacts = response;
     });
   }
 

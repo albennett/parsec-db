@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const customers = require('./routes/customers');
+const contacts = require('./routes/contacts');
 const companies = require('./routes/companies');
 
 const PORT = process.env.PORT || 3000;
@@ -28,10 +28,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res){
-  res.send('Please use /api/companies or /api/customers');
+  res.send('Please use /api/companies or /api/contacts');
 });
 
-app.use('/api/customers', customers);
+app.use('/api/contacts', contacts);
 app.use('/api/companies', companies);
 
 mongoose.connect(MONGODB_URL);

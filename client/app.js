@@ -5,13 +5,13 @@ myApp.config(function($routeProvider){
     controller: 'DashboardController',
     templateUrl: 'views/dashboard.html'
   })
-  .when('/customers',{
-    controller: 'CustomersController',
-    templateUrl: 'views/customers.html'
+  .when('/contacts',{
+    controller: 'ContactsController',
+    templateUrl: 'views/contacts.html'
   })
-  .when('/customers/details/:id',{
-    controller: 'CustomersController',
-    templateUrl: 'views/customer_details.html'
+  .when('/contacts/details/:id',{
+    controller: 'ContactsController',
+    templateUrl: 'views/contact_details.html'
   })
   .when('/companies',{
     controller: 'CompaniesController',
@@ -21,17 +21,17 @@ myApp.config(function($routeProvider){
     controller: 'CompaniesController',
     templateUrl: 'views/company_details.html'
   })
-  .when('/customers/add', {
-      controller: 'CustomersController',
-      templateUrl: 'views/add_customer.html'
+  .when('/contacts/add', {
+      controller: 'ContactsController',
+      templateUrl: 'views/add_contact.html'
     })
     .when('/companies/add', {
       controller: 'CompaniesController',
       templateUrl: 'views/add_company.html'
     })
-    .when('/customers/edit/:id',{
-    controller: 'CustomersController',
-    templateUrl: 'views/edit_customer.html'
+    .when('/contacts/edit/:id',{
+    controller: 'ContactsController',
+    templateUrl: 'views/edit_contact.html'
   })
   .when('/companies/edit/:id',{
     controller: 'CompaniesController',

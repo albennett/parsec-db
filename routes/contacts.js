@@ -1,71 +1,71 @@
 const express = require('express');
 const router = express.Router();
 
-Customer = require('../models/customer.js');
+Contact = require('../models/contact.js');
 Company = require('../models/company.js');
 
 // Get All Companies
 router.get('/', function(req, res){
-  Customer.getCustomers(function(err, customers){
+  Contact.getContacts(function(err, contacts){
     if(err){
       res.send(err);
     }
-    res.json(customers);
+    res.json(contacts);
   });
 });
 
-// Get Single Customer
+// Get Single contact
 router.get('/:id', function(req, res){
-  Customer.getCustomerById(req.params.id, function(err, customer){
+  Contact.getContactById(req.params.id, function(err, contact){
     if(err){
       res.send(err);
     }
-    res.json(customer);
+    res.json(contact);
   });
 });
 
-// Add Customer
+// Add contact
 router.post('/', function(req, res){
-  const customer = req.body;
-  Customer.addCustomer(customer, function(err, customer){
+  const contact = req.body;
+  Contact.addContact(contact, function(err, contact){
     if(err){
       res.send(err);
     }
-    res.json(customer);
+    res.json(contact);
   });
 });
 
-// Update Customer
+// Update contact
 router.put('/:id', function(req, res){
   const id = req.params.id;
-  const customer = req.body;
-  Customer.updateCustomer(id, customer, {}, function(err, customer){
+  const contact = req.body;
+  Contact.updateContact(id, contact, {}, function(err, contact){
     if(err){
       res.send(err);
     }
-    res.json(customer);
+    res.json(contact);
   });
 });
 
-// Delete Customer
+// Delete contact
 router.delete('/:id', function(req, res){
   var id = req.params.id;
-  Customer.removeCustomer(id, function(err, customer){
+  Contact.removeContact(id, function(err, contact){
     if(err){
       res.send(err);
     }
-    res.json(customer);
+    res.json(contact);
   });
 });
 
-// Get All Customers For a Single Company
+// Get All contacts For a Single Company
 router.get('/company/:company_id', function(req, res){
   var company_id = req.params.company_id;
-  Customer.getCompanyCustomers(company_id, function(err, customers){
+  Contact.getCompanyContacts(company_id, function(err, contacts){
     if(err){
       res.send(err);
     }
-    res.json(customers);
+    res.json(contacts);
   });
 });
 

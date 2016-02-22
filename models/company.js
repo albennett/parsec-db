@@ -45,7 +45,7 @@ company:{
 
 var Company = module.exports = mongoose.model('Company', companySchema);
 
-// Get customers
+// Get companies
 module.exports.getCompanies = function(callback, limit){
   Company.find(callback).limit(limit).sort([['company', 'ascending']]);
 }
@@ -55,7 +55,7 @@ module.exports.getCompanyById = function(id, callback){
   Company.findById(id, callback);
 }
 
-// Add Customer
+// Add Company
 module.exports.addCompany = function(company, callback){
   var add = {
     company: company.company,
