@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const companySchema = mongoose.Schema({
 
 company:{
-    type: String
+    type: String,
+    required: true
   },
   email:{
     type: String,
-    required: true
   },
   phone:{
     type: String
