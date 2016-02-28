@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(function($routeProvider){
-  $routeProvider.when('/',{
+  $routeProvider.when('/home',{
     controller: 'DashboardController',
     templateUrl: 'views/dashboard.html'
   })
@@ -37,7 +37,7 @@ myApp.config(function($routeProvider){
     controller: 'CompaniesController',
     templateUrl: 'views/edit_company.html'
   })
-  .otherwise({
-    redirectTo: '/'
-  });
+  // .otherwise({
+  //   redirectTo: '/'
+  // });
 });

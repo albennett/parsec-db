@@ -61,7 +61,7 @@ app.use((req, res, next) => {
 
 app.use('/api/contacts', contacts);
 app.use('/api/companies', companies);
-app.use('/', auth);
+app.use('/user/', auth);
 
 mongoose.connect(MONGODB_URL);
 const db = mongoose.connection;
