@@ -11,7 +11,7 @@ router.get('/', (req, res) =>
 {
   // if user logged in, redirect to logged in page, else render index
   if(res.locals.userId){
-      res.redirect('/loggedin');
+      res.redirect('/#/home');
   } else {
     res.render('index');
   }
@@ -40,7 +40,7 @@ router.get('/loggedin', (req, res) =>
 // handle user login
 router.post('/login',
   passport.authenticate('local',
-  { successRedirect: '/loggedin',
+  { successRedirect: '/#/home',
     failureRedirect: '/'
   }));
 
