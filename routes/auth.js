@@ -11,13 +11,13 @@ router.get('/', (req, res) => {
 });
 
 router.post('/',
-  passport.authenticate('local'
-    // {
-    //   failureFlash: 'Incorrect email or password',
-    //   failureRedirect: '/login',
-    //   successFlash: 'Success!',
-    //   successRedirect: '/'
-    // }
+  passport.authenticate('local',
+    {
+      // failureFlash: 'Incorrect email or password',
+      failureRedirect: '/user',
+      // successFlash: 'Success!',
+      successRedirect: '/'
+    }
   )
 );
 
@@ -41,7 +41,7 @@ router.post('/register', (req, res) => {
       if (err) throw err;
 
       if (user) {
-        res.redirect('/');
+        res.redirect('/user');
       } else {
         User.create(req.body, (err) => {
           if (err) throw err;

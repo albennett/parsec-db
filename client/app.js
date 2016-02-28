@@ -37,7 +37,7 @@ myApp.config(function($routeProvider){
     controller: 'CompaniesController',
     templateUrl: 'views/edit_company.html'
   })
-  // .otherwise({
-  //   redirectTo: '/'
-  // });
+  .otherwise({
+    redirectTo: '/home'
+  });
 });
