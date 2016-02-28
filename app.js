@@ -3,6 +3,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const User = require('./models/user');
 
 const contacts = require('./routes/contacts');
 const companies = require('./routes/companies');
@@ -30,6 +35,28 @@ app.use(bodyParser.json());
 
 app.get('/', function(req, res){
   res.send('Please use /api/companies or /api/contacts');
+});
+
+app.use((req, res, next) => {
+  console.log("req is  ");
+  console.log(req.session.passport);
+  if(req.session.passport){
+    console.log("Yas passport is here");
+    res.locals.userId = req.session.passport.user;
+      // if no res.locals.username, set it
+      // SET IT SESSION AND NOT LOCALS?
+      console.log("req.session is ");
+      console.log(req.session);
+    console.log(res.locals);
+  } else {
+    console.log("passport not here");
+  }
+  // if user logs in add req.session.loggedInUser = whatever, you can validate against this the rest of the time
+    // passport adds req.user on login, and we can access it and modify whatever
+    // good idea to stick with the req.session.passport
+    // cookie identifies the session, and cookies are unique to session
+  req.loggedInUser = req.session.passport;
+  next();
 });
 
 app.use('/api/contacts', contacts);
