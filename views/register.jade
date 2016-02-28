@@ -1,0 +1,12 @@
+form(action='/register', method='POST')
+  .input-group
+    label(for='email') Email
+    input#email(type='email', name='email', autofocus, required, value=email)
+  .input-group
+    label(for='pass') Password
+    input#pass(type='password', name='password', required)
+  .input-group
+    label(for='verify') Password Verify
+    input#verify(type='password', name='verify', required)
+  .input-group
+    input(type='submit', value='Register')

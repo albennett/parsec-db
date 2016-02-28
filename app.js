@@ -3,11 +3,17 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const flash = require('connect-flash');
 
 const contacts = require('./routes/contacts');
 const companies = require('./routes/companies');
+const auth = require('./routes/auth');
 
 const PORT = process.env.PORT || 3000;
+const SESSION_SECRET = process.env.SESSION_SECRET || 'secret';
 
 const MONGODB_HOST = process.env.MONGODB_HOST || 'localhost';
 const MONGODB_PORT = process.env.MONGODB_PORT || 27017;
@@ -24,16 +30,38 @@ const MONGODB_URL = `mongodb://${MONGODB_AUTH}${MONGODB_HOST}:${MONGODB_PORT}/${
 // Mongoose Connect
 // mongoose.connect('mongodb://localhost/parsec');
 
+app.set('view engine', 'jade');
+
 app.use(express.static(__dirname+'/client'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(session({
+  secret: SESSION_SECRET,
+  store: new RedisStore()
+}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.get('/', function(req, res){
-  res.send('Please use /api/companies or /api/contacts');
+app.locals.title = '';
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
 });
+
+app.use((req, res, next) => {
+  res.locals.messages = req.flash();
+  next();
+});
+
+// app.get('/', function(req, res){
+//   res.send('Please use /api/companies or /api/contacts');
+// });
 
 app.use('/api/contacts', contacts);
 app.use('/api/companies', companies);
+app.use('/', auth);
 
 mongoose.connect(MONGODB_URL);
 const db = mongoose.connection;
