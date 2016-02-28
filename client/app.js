@@ -1,9 +1,17 @@
 var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(function($routeProvider){
-  $routeProvider.when('/',{
+  $routeProvider.when('/home',{
     controller: 'DashboardController',
     templateUrl: 'views/dashboard.html'
+  })
+  .when('/',{
+    controller: 'AuthController',
+    templateUrl: 'views/login.html'
+  })
+  .when('/register',{
+    controller: 'AuthController',
+    templateUrl: 'views/register.html'
   })
   .when('/contacts',{
     controller: 'ContactsController',
@@ -39,5 +47,13 @@ myApp.config(function($routeProvider){
   })
   .otherwise({
     redirectTo: '/'
+  });
+});
+
+myApp.run(function ($rootScope, $location, $route, AuthService) {
+  $rootScope.$on('$routeChangeStart', function (event, next, current) {
+    if (AuthService.isLoggedIn() === false) {
+      $location.path('/login');
+    }
   });
 });
