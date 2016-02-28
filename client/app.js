@@ -22,14 +22,14 @@ myApp.config(function($routeProvider){
     templateUrl: 'views/company_details.html'
   })
   .when('/contacts/add', {
-      controller: 'ContactsController',
-      templateUrl: 'views/add_contact.html'
-    })
-    .when('/companies/add', {
-      controller: 'CompaniesController',
-      templateUrl: 'views/add_company.html'
-    })
-    .when('/contacts/edit/:id',{
+    controller: 'ContactsController',
+    templateUrl: 'views/add_contact.html'
+  })
+  .when('/companies/add', {
+    controller: 'CompaniesController',
+    templateUrl: 'views/add_company.html'
+  })
+  .when('/contacts/edit/:id',{
     controller: 'ContactsController',
     templateUrl: 'views/edit_contact.html'
   })
@@ -37,7 +37,27 @@ myApp.config(function($routeProvider){
     controller: 'CompaniesController',
     templateUrl: 'views/edit_company.html'
   })
+  .when('/login', {
+    templateUrl: 'views/login.html',
+    controller: 'loginController'
+  })
+  .when('/logout', {
+    controller: 'logoutController'
+  })
+  .when('/register', {
+    templateUrl: 'views/register.html',
+    controller: 'registerController'
+  })
   .otherwise({
     redirectTo: '/home'
   });
 });
+
+// myApp.run(function ($rootScope, $location, $route, AuthService) {
+//   $rootScope.$on('$routeChangeStart', function (event, next, current) {
+//     if (next.access.restricted && AuthService.isLoggedIn() === false) {
+//       $location.path('/login');
+//       $route.reload();
+//     }
+//   });
+// });

@@ -6,20 +6,22 @@ const User = require('../models/auth');
 
 require('../local');
 
-router.get('/', (req, res) => {
-  res.render('login');
-});
+// router.get('/', (req, res) => {
+//   res.render('login');
+// });
 
-router.post('/',
+router.post('/login',
   passport.authenticate('local',
     {
       // failureFlash: 'Incorrect email or password',
-      failureRedirect: '/user',
+      // failureRedirect: '/user',
       // successFlash: 'Success!',
-      successRedirect: '/'
+      // successRedirect: '/'
+      // successRedirect: '/'
     }
   )
 );
+
 
 // router.delete('/', (req, res) => {
 //   req.session.regenerate(function(err) {
@@ -29,13 +31,13 @@ router.post('/',
 //   });
 // });
 
-router.get('/register', (req, res) => {
-  res.render('register');
-});
+// router.get('/register', (req, res) => {
+//   res.render('register');
+// });
 
 router.post('/register', (req, res) => {
   console.log("req", req.body);
-  if (req.body.password === req.body.verify) {
+  // if (req.body.password === req.body.verify) {
     User.findOne({email: req.body.email}, (err, user) => {
       console.log("usr", user);
       if (err) throw err;
@@ -46,16 +48,21 @@ router.post('/register', (req, res) => {
         User.create(req.body, (err) => {
           if (err) throw err;
 
-          res.redirect('/user');
+          res.redirect('/#/user');
         });
       }
     });
-  } else {
-    res.render('register', {
-      email: req.body.email,
-      message: 'Passwords do not match'
-    });
-  }
+  // } else {
+    // res.render('register', {
+    //   email: req.body.email,
+    //   message: 'Passwords do not match'
+    // });
+  // }
+});
+
+router.get('/logout', function(req, res) {
+  req.logout();
+  res.status(200).json({status: 'Bye!'})
 });
 
 module.exports = router;
