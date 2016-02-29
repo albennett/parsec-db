@@ -14,12 +14,14 @@ angular.module('myApp').controller('loginController',
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
         // handle success
         .then(function () {
+          console.log("success with ctrl login");
           $location.path('/home');
           $scope.disabled = false;
           $scope.loginForm = {};
         })
         // handle error
         .catch(function () {
+          console.log("error with ctrl login");
           $scope.error = true;
           $scope.errorMessage = "Invalid username and/or password";
           $scope.disabled = false;

@@ -14,13 +14,15 @@ angular.module('myApp').controller('registerController',
       AuthService.register($scope.registerForm.email, $scope.registerForm.password)
         // handle success
         .then(function () {
-          console.log("location");
-          $location.path('/login');
+          console.log("success in register ctrl");
           $scope.disabled = false;
           $scope.registerForm = {};
+          $location.path('/login');
         })
         // handle error
-        .catch(function () {
+        .catch(function (error) {
+          console.log("error in reg ctrl", error);
+          $location.path('/login');
           $scope.error = true;
           $scope.errorMessage = "Something went wrong!";
           $scope.disabled = false;

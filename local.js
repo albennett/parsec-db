@@ -5,6 +5,7 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('./models/auth');
 
+console.log("getting to local");
 passport.serializeUser(function(user, done) {
   done(null, user._id);
 });

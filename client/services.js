@@ -29,16 +29,21 @@ angular.module('myApp').factory('AuthService',
       })
         // handle success
         .success(function (data, status) {
-          if(status === 200 && data.status){
+          // if(status === 200 && data.status){
+            console.log("http status:", status, "data:", data)
+            if (status === 200) {
+              console.log("it's 200");
             user = true;
             deferred.resolve();
           } else {
+            console.log("http issue");
             user = false;
             deferred.reject();
           }
         })
         // handle error
         .error(function (data) {
+          console.log("error issue");
           user = false;
           deferred.reject();
         });
@@ -72,7 +77,6 @@ angular.module('myApp').factory('AuthService',
     }
 
     function register(email, password) {
-
       // create a new instance of deferred
       var deferred = $q.defer();
       // send a post request to the server
@@ -82,16 +86,20 @@ angular.module('myApp').factory('AuthService',
       })
         // handle success
         .success(function (data, status) {
-          console.log("data", data);
-          if(status === 200 && data.status){
+          console.log("http status:", status, "data:", data);
+          // if(status === 200 && data.status){
+            if (status === 200){
+            console.log("success in server");
             deferred.resolve();
           } else {
+            console.log("Other error");
             deferred.reject();
           }
         })
         // handle error
         .error(function (data) {
-          deferred.reject();
+          console.log("login error");
+          deferred.reject(error);
         });
 
       // return promise object

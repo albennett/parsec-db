@@ -8,13 +8,11 @@ require('../local');
 
 
 router.post('/login',
-  passport.authenticate('local'
-    // {
-      // failureFlash: 'Incorrect email or password',
-      // failureRedirect: '/user',
-      // successFlash: 'Success!',
-      // successRedirect: '/'
-    // }
+  passport.authenticate('local',
+    {
+      failureRedirect: '../#/login',
+      successRedirect: '../#/home'
+    }
   )
 );
 
@@ -26,15 +24,15 @@ router.post('/register', (req, res) => {
       if (err) throw err;
 
       if (user) {
-        // res.redirect('/#/user');
+        res.redirect('http://localhost:3000/#/user');
       } else {
         User.create(req.body, (err) => {
           if (err) throw err;
-
-          // res.redirect('/#/user');
+          res.end();
         });
       }
     });
+
   // } else {
     // res.render('register', {
     //   email: req.body.email,
