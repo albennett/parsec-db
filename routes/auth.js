@@ -6,34 +6,17 @@ const User = require('../models/auth');
 
 require('../local');
 
-// router.get('/', (req, res) => {
-//   res.render('login');
-// });
 
 router.post('/login',
-  passport.authenticate('local',
-    {
+  passport.authenticate('local'
+    // {
       // failureFlash: 'Incorrect email or password',
       // failureRedirect: '/user',
       // successFlash: 'Success!',
       // successRedirect: '/'
-      // successRedirect: '/'
-    }
+    // }
   )
 );
-
-
-// router.delete('/', (req, res) => {
-//   req.session.regenerate(function(err) {
-//     if (err) throw err;
-
-//     res.redirect('/');
-//   });
-// });
-
-// router.get('/register', (req, res) => {
-//   res.render('register');
-// });
 
 router.post('/register', (req, res) => {
   console.log("req", req.body);
@@ -43,12 +26,12 @@ router.post('/register', (req, res) => {
       if (err) throw err;
 
       if (user) {
-        res.redirect('/user');
+        // res.redirect('/#/user');
       } else {
         User.create(req.body, (err) => {
           if (err) throw err;
 
-          res.redirect('/#/user');
+          // res.redirect('/#/user');
         });
       }
     });

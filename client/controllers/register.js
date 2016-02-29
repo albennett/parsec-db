@@ -14,6 +14,7 @@ angular.module('myApp').controller('registerController',
       AuthService.register($scope.registerForm.email, $scope.registerForm.password)
         // handle success
         .then(function () {
+          console.log("location");
           $location.path('/login');
           $scope.disabled = false;
           $scope.registerForm = {};
