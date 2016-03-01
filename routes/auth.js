@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
@@ -8,12 +10,12 @@ require('../local');
 
 
 router.post('/login',
-  passport.authenticate('local',
-    {
-      failureRedirect: '../#/login',
-      successRedirect: '../#/home'
-    }
-  )
+  passport.authenticate('local'),
+  (req, res) => {
+    // res.redirect('http://localhost:3000/#/home')
+    // res.send({status: 'Success'});
+    res.end();
+  }
 );
 
 router.post('/register', (req, res) => {

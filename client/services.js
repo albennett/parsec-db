@@ -18,31 +18,22 @@ angular.module('myApp').factory('AuthService',
     }
 
     function login(email, password) {
-
+      console.log("email", email);
+      console.log("password", password);
       // create a new instance of deferred
       var deferred = $q.defer();
-
       // send a post request to the server
       $http.post('/user/login', {
         email: email,
         password: password
       })
         // handle success
-        .success(function (data, status) {
-          // if(status === 200 && data.status){
-            console.log("http status:", status, "data:", data)
-            if (status === 200) {
-              console.log("it's 200");
-            user = true;
-            deferred.resolve();
-          } else {
-            console.log("http issue");
-            user = false;
-            deferred.reject();
-          }
+        .then(function (data) {
+            console.log("data:", data)
+            deferred.resolve(data);
         })
         // handle error
-        .error(function (data) {
+        .catch(function (data) {
           console.log("error issue");
           user = false;
           deferred.reject();
@@ -61,12 +52,12 @@ angular.module('myApp').factory('AuthService',
       // send a get request to the server
       $http.get('/user/logout')
         // handle success
-        .success(function (data) {
+        .then(function (data) {
           user = false;
           deferred.resolve();
         })
         // handle error
-        .error(function (data) {
+        .catch(function (data) {
           user = false;
           deferred.reject();
         });
@@ -85,19 +76,12 @@ angular.module('myApp').factory('AuthService',
         password: password
       })
         // handle success
-        .success(function (data, status) {
+        .then(function (data, status) {
           console.log("http status:", status, "data:", data);
-          // if(status === 200 && data.status){
-            if (status === 200){
-            console.log("success in server");
             deferred.resolve();
-          } else {
-            console.log("Other error");
-            deferred.reject();
-          }
         })
         // handle error
-        .error(function (data) {
+        .catch(function (data) {
           console.log("login error");
           deferred.reject(error);
         });
