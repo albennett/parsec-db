@@ -1,5 +1,9 @@
-var myApp = angular.module("myApp");
+angular.module('myApp').controller('DashboardController',
+  ['$scope', '$location', 'AuthService',
+  function ($scope, $location, AuthService) {
 
-myApp.controller('DashboardController', ['$scope', '$http','$location', function($scope, $http,$location){
-  console.log('Dashboard Controller Initialized...');
+  $scope.addAccess = function() {
+    AuthService.addEmailAccess($scope.email);
+  }
+
 }]);

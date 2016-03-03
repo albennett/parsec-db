@@ -2,8 +2,9 @@ angular.module('myApp').factory('AuthService',
   ['$q', '$timeout', '$http',
   function ($q, $timeout, $http) {
 
+    var array = [];
     // create user variable
-    var user = null;
+    var user = false;
 
     function isLoggedIn() {
       if(user) {
@@ -17,9 +18,13 @@ angular.module('myApp').factory('AuthService',
       return user;
     }
 
-    function login(email, password) {
-      console.log("email", email);
-      console.log("password", password);
+    function addEmailAccess(email) {
+      array = ['a@a.com'];
+      array.push(email);
+      console.log("array", array);
+    }
+
+    function login(email, password, array) {
       // create a new instance of deferred
       var deferred = $q.defer();
       // send a post request to the server
@@ -29,8 +34,16 @@ angular.module('myApp').factory('AuthService',
       })
         // handle success
         .then(function (data) {
-            console.log("data:", data)
-            deferred.resolve(data);
+          console.log("data:", data)
+          const email = data.config.data.email;
+          console.log("array", array);
+          for (var i =0; i < array.length; i++ ) {
+            if (email === array[i]) {
+              user = true;
+            }
+          }
+          console.log("user", user);
+          deferred.resolve(data);
         })
         // handle error
         .catch(function (data) {
@@ -38,10 +51,8 @@ angular.module('myApp').factory('AuthService',
           user = false;
           deferred.reject();
         });
-
       // return promise object
       return deferred.promise;
-
     }
 
     function logout() {
@@ -83,7 +94,7 @@ angular.module('myApp').factory('AuthService',
         // handle error
         .catch(function (data) {
           console.log("login error");
-          deferred.reject(error);
+          deferred.reject();
         });
 
       // return promise object
@@ -97,6 +108,7 @@ angular.module('myApp').factory('AuthService',
       getUserStatus: getUserStatus,
       login: login,
       logout: logout,
-      register: register
+      register: register,
+      addEmailAccess: addEmailAccess
     });
 }]);

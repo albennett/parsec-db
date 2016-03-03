@@ -9,12 +9,11 @@ angular.module('myApp').controller('loginController',
       // initial values
       $scope.error = false;
       $scope.disabled = true;
-
       // call login from service
 
       AuthService.login($scope.loginForm.email, $scope.loginForm.password)
         // handle success
-        .then(function () {
+        .then(function (data) {
           console.log("success with ctrl login");
           $location.path('/home');
           $scope.disabled = false;

@@ -12,8 +12,6 @@ require('../local');
 router.post('/login',
   passport.authenticate('local'),
   (req, res) => {
-    // res.redirect('http://localhost:3000/#/home')
-    // res.send({status: 'Success'});
     res.end();
   }
 );
@@ -21,26 +19,20 @@ router.post('/login',
 router.post('/register', (req, res) => {
   console.log("req", req.body);
   // if (req.body.password === req.body.verify) {
-    User.findOne({email: req.body.email}, (err, user) => {
-      console.log("usr", user);
-      if (err) throw err;
+  User.findOne({email: req.body.email}, (err, user) => {
+    console.log("usr", user);
+    if (err) throw err;
 
-      if (user) {
-        res.redirect('http://localhost:3000/#/user');
-      } else {
-        User.create(req.body, (err) => {
-          if (err) throw err;
-          res.end();
-        });
-      }
-    });
-
-  // } else {
-    // res.render('register', {
-    //   email: req.body.email,
-    //   message: 'Passwords do not match'
-    // });
-  // }
+    if (user) {
+      console.log("already a user");
+      res.end();
+    } else {
+      User.create(req.body, (err) => {
+        if (err) throw err;
+        res.end();
+      });
+    }
+  });
 });
 
 router.get('/logout', function(req, res) {
