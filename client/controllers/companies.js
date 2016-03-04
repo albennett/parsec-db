@@ -42,18 +42,11 @@ myApp.controller('CompaniesController', ['$scope', '$http','$location','$routePa
     });
   }
 
-   $(document).ready(function () {
-     $("#chooseSocial").change(function () {
-         $("#social").append("<input class='field form-control' type='text' ng-model='company.web." + $(this).val() + "' value='" + $(this).val() + "' name='" + $(this).val() + "'/><label class='remove'>Remove</label>");
-         $(this).find("option:selected").remove();
-         console.log("this.value", $(this).val());
-     });
-     $("#social").on("click", ".remove", function () {
-         var val = $(this).parent().find("input").val();
-         console.log("val", val);
-         $("#chooseSocial").append("<option value='" + val + "'>" + val + "</option>");
-         $(this).parent().remove();
-     });
+ $(document).ready(function () {
+    $("#chooseSocial").change(function () {
+    $("#social").append("<input class='field form-control' type='text' ng-model='company.web." + $(this).val() + "' placeholder='" + $(this).val() + "'/>");
+      console.log("this.value", $(this).val());
+   });
  });
 
 }]);
