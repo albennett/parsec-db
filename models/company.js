@@ -22,7 +22,13 @@ company:{
     shippingorphysical: String
   },
   web:{
-    type: String
+    facebook: String,
+    twitter: String,
+    youtube: String,
+    instagram: String,
+    vimeo: String,
+    googleplus: String,
+    other: String
   },
   population:{
     type: String
@@ -63,7 +69,15 @@ module.exports.addCompany = (company, callback) => {
     company: company.company,
     email: company.email,
     phone: company.phone,
-    web: company.web,
+    web: {
+      facebook: company.web.facebook,
+      instagram: company.web.instagram,
+      twitter: company.web.twitter,
+      youtube: company.web.youtube,
+      vimeo: company.web.vimeo,
+      googleplus: company.web.googleplus,
+      other: company.web.other
+    },
     population: company.population,
     brand: company.brand,
     reseller: company.reseller,
@@ -87,7 +101,15 @@ module.exports.updateCompany = (id, company, options, callback) => {
     company: company.company,
     email: company.email,
     phone: company.phone,
-    web: company.web,
+    web: {
+      facebook: company.web.facebook,
+      instagram: company.web.instagram,
+      twitter: company.web.twitter,
+      youtube: company.web.youtube,
+      vimeo: company.web.vimeo,
+      googleplus: company.web.googleplus,
+      other: company.web.other
+    },
     population: company.population,
     brand: company.brand,
     reseller: company.reseller,

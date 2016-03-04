@@ -43,4 +43,5 @@ myApp.controller('ContactsController', ['$scope', '$http','$location','$routePar
       window.location.href='/#contacts';
     });
   }
+
 }]);
