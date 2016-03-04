@@ -19,9 +19,27 @@ angular.module('myApp').factory('AuthService',
     }
 
     function addEmailAccess(email) {
-      array = ['a@a.com'];
-      array.push(email);
-      console.log("array", array);
+      // array = ['a@a.com'];
+      // array.push(email);
+      // console.log("array", array);
+
+      var deferred = $q.defer();
+      console.log("email in factory", email);
+      // send a post request to the server
+      $http.post('/user/access', {
+        email: email
+      })
+      // handle success
+      .then(function () {
+          deferred.resolve();
+      })
+      // handle error
+      .catch(function () {
+        deferred.reject();
+      });
+
+      // return promise object
+      return deferred.promise;
     }
 
     function login(email, password, array) {

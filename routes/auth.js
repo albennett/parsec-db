@@ -5,9 +5,22 @@ const passport = require('passport');
 const router = express.Router();
 
 const User = require('../models/auth');
+const Access = require('../models/access');
 
 require('../local');
 
+
+router.post('/access', (req, res) => {
+  const email = req.body;
+  console.log("email req.body", email);
+  Access.giveAccess(email, (err, email) => {
+    if(err){
+      res.send(err);
+    }
+    console.log("email routes", email);
+    // res.end();
+  });
+})
 
 router.post('/login',
   passport.authenticate('local'),
