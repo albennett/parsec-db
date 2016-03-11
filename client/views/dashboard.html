@@ -2,6 +2,10 @@
 <p>This is the dashboard area for Parsec Solutions. Please use the options in the side and top menu</p>
 
 
-<div>
-  <h4>Give an email access to database:</h4> <input ng-model="email" placeholder="email"> <button ng-click=addAccess()>Submit</button>
-</div>
+<form>
+  <h4>Give an email access to database:</h4>
+  <div class='form-group'>
+    <input class='form-control' ng-model="email" placeholder="email">
+    <button class='btn' ng-click=addAccess()>Submit</button>
+  </div>
+</form>

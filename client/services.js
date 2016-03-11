@@ -14,24 +14,21 @@ angular.module('myApp').factory('AuthService',
       }
     }
 
-    function getUserStatus() {
-      return user;
-    }
-
     function addEmailAccess(email) {
       // array = ['a@a.com'];
       // array.push(email);
       // console.log("array", array);
 
-      var deferred = $q.defer();
       console.log("email in factory", email);
+      var deferred = $q.defer();
       // send a post request to the server
       $http.post('/user/access', {
         email: email
       })
       // handle success
-      .then(function () {
-          deferred.resolve();
+      .then(function (email) {
+        console.log("email deffered", email);
+        deferred.resolve(email.config.data.email);
       })
       // handle error
       .catch(function () {
@@ -53,13 +50,13 @@ angular.module('myApp').factory('AuthService',
         // handle success
         .then(function (data) {
           console.log("data:", data)
-          const email = data.config.data.email;
-          console.log("array", array);
-          for (var i =0; i < array.length; i++ ) {
-            if (email === array[i]) {
-              user = true;
-            }
-          }
+          // const email = data.config.data.email;
+          // console.log("array", array);
+          // for (var i =0; i < array.length; i++ ) {
+          //   if (email === array[i]) {
+          //     user = true;
+          //   }
+          // }
           console.log("user", user);
           deferred.resolve(data);
         })
@@ -123,7 +120,6 @@ angular.module('myApp').factory('AuthService',
     // return available functions for use in controllers
     return ({
       isLoggedIn: isLoggedIn,
-      getUserStatus: getUserStatus,
       login: login,
       logout: logout,
       register: register,

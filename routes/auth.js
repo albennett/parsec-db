@@ -11,13 +11,13 @@ require('../local');
 
 
 router.post('/access', (req, res) => {
-  const email = req.body;
+  const email = req.body.email;
   console.log("email req.body", email);
-  Access.giveAccess(email, (err, email) => {
+  Access.giveAccess(email, (err, emailR) => {
+    console.log("email routes", emailR, err);
     if(err){
       res.send(err);
     }
-    console.log("email routes", email);
     // res.end();
   });
 })
