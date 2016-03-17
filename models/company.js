@@ -4,24 +4,40 @@ const mongoose = require('mongoose');
 // Company Schema
 const companySchema = mongoose.Schema({
 
-company:{
+  company: {
     type: String,
     required: true
   },
-  email:{
-    type: String,
+  email: {
+    main: String,
+    other: String
   },
-  phone:{
-    type: String
+  phone: {
+    main: String,
+    fax: String
   },
-  address:{
-    street: String,
-    city: String,
-    state: String,
-    zip: String,
-    shippingorphysical: String
+  address: {
+    main: {
+      street: String,
+      city: String,
+      state: String,
+      zip: String
+    },
+    mailing: {
+      street: String,
+      city: String,
+      state: String,
+      zip: String
+    },
+    other:{
+      street: String,
+      city: String,
+      state: String,
+      zip: String
+    }
   },
-  web:{
+  url: String,
+  web: {
     facebook: String,
     twitter: String,
     youtube: String,
@@ -33,21 +49,24 @@ company:{
   population:{
     type: String
   },
-  brand:{
+  brand: {
     type: String
   },
-  reseller:{
+  companyType: {
     type: String
   },
   status: {
     type: String
   },
-  createdAt:{
+  createdAt: {
     type: Date,
     default: Date.now
   },
-  notes:{
+  notes: {
     type:String
+  },
+  timezone: {
+    type: String
   }
 });
 
@@ -65,66 +84,12 @@ module.exports.getCompanyById = (id, callback) => {
 
 // Add Company
 module.exports.addCompany = (company, callback) => {
-  const add = {
-    company: company.company,
-    email: company.email,
-    phone: company.phone,
-    web: {
-      facebook: company.web.facebook,
-      instagram: company.web.instagram,
-      twitter: company.web.twitter,
-      youtube: company.web.youtube,
-      vimeo: company.web.vimeo,
-      googleplus: company.web.googleplus,
-      other: company.web.other
-    },
-    population: company.population,
-    brand: company.brand,
-    reseller: company.reseller,
-    phone: company.phone,
-    status: company.status,
-    address: {
-      street: company.address.street,
-      city: company.address.city,
-      state: company.address.state,
-      zip: company.address.zip,
-      type: company.shippingorphysical
-    },
-    notes: company.notes
-  }
-  Company.create(add, callback);
+  Company.create(company, callback);
 }
 //update company
 module.exports.updateCompany = (id, company, options, callback) => {
   const query = {_id: id};
-  const update = {
-    company: company.company,
-    email: company.email,
-    phone: company.phone,
-    web: {
-      facebook: company.web.facebook,
-      instagram: company.web.instagram,
-      twitter: company.web.twitter,
-      youtube: company.web.youtube,
-      vimeo: company.web.vimeo,
-      googleplus: company.web.googleplus,
-      other: company.web.other
-    },
-    population: company.population,
-    brand: company.brand,
-    reseller: company.reseller,
-    phone: company.phone,
-    status: company.status,
-    address: {
-      street: company.address.street,
-      city: company.address.city,
-      state: company.address.state,
-      zip: company.address.zip,
-      type: company.shippingorphysical
-    },
-    notes: company.notes
-  }
-  Company.findOneAndUpdate(query, update, options, callback);
+  Company.findOneAndUpdate(query, company, options, callback);
 }
 
 // Remove Company

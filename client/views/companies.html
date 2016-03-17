@@ -30,8 +30,8 @@
     <tr ng-repeat="company in companies">
       <td>{{company._id}}</td>
       <td>{{company.company}}</td>
-      <td>{{company.phone}}</td>
-      <td>{{company.email}}</td>
+      <td>{{company.phone.main}}</td>
+      <td>{{company.email.main}}</td>
       <td><a href="#/companies/details/{{company._id}}" class="btn btn-primary">Details</a> <a href="#/companies/edit/{{company._id}}" class="btn btn-default">Edit</a> <button id="deleteCompany" ng-click="deleteCompany(company._id)" class="btn btn-danger">Delete</a></td>
     </tr>
 

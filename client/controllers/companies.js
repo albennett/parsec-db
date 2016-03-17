@@ -41,12 +41,4 @@ myApp.controller('CompaniesController', ['$scope', '$http','$location','$routePa
       window.location.href='/#companies';
     });
   }
-
- $(document).ready(function () {
-    $("#chooseSocial").change(function () {
-    $("#social").append("<input class='field form-control' type='text' ng-model='company.web." + $(this).val() + "' placeholder='" + $(this).val() + "'/>");
-      console.log("this.value", $(this).val());
-   });
- });
-
 }]);

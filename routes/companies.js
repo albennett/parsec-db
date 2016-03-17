@@ -28,6 +28,7 @@ router.get('/:id', (req, res) => {
 // Add Company
 router.post('/', (req, res) => {
   const company = req.body;
+  console.log("company", company);
   Company.addCompany(company, (err, company) => {
     if(err){
       res.send(err);

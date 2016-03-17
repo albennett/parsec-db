@@ -4,18 +4,41 @@
   <h2 class="sub-header">{{company.company}}</h2>
   <ul class="list-group">
     <li class="list-group-item"><strong>Company: </strong> {{company.company}}</li>
-    <li class="list-group-item"><strong>Email: </strong> {{company.email}}</li>
-    <li class="list-group-item"><strong>Phone: </strong> {{company.phone}}</li>
-    <li class="list-group-item"><strong>Web: </strong> <a href="{{company.web}}">{{company.web}}</a></li>
-    <li class="list-group-item"><strong>Population: </strong> {{company.population}}</li>
-    <li class="list-group-item"><strong>Brand: </strong> {{company.brand}}</li>
-    <li class="list-group-item"><strong>Reseller: </strong> {{company.reseller}}</li>
-    <li class="list-group-item"><strong>Status: </strong> {{company.status}}</li>
-    <li class="list-group-item"><strong>Street Address: </strong> {{company.address.street}}</li>
-    <li class="list-group-item"><strong>City: </strong> {{company.address.city}}</li>
-    <li class="list-group-item"><strong>State: </strong> {{company.address.state}}</li>
-    <li class="list-group-item"><strong>Zip: </strong> {{company.address.zip}}</li>
-    <li class="list-group-item"><strong>Notes: </strong> {{company.notes}}</li>
+    <li class="list-group-item" ng-if="company.email.main"><strong>Email: </strong> {{company.email.main}}</li>
+    <li class="list-group-item" ng-if="company.email.other"><strong>Other Email: </strong> {{company.email.other}}</li>
+    <li class="list-group-item" ng-if="company.phone.main"><strong>Main Phone: </strong> {{company.phone.main}}</li>
+    <li class="list-group-item" ng-if="company.phone.fax"><strong>Fax: </strong> {{company.phone.fax}}</li>
+
+    <li class="list-group-item" ng-if="company.web.facebook"><strong>Facebook: </strong> <a href="">{{company.web.facebook}}</a></li>
+    <li class="list-group-item" ng-if="company.web.twitter"><strong>Twitter: </strong> <a href="">{{company.web.twitter}}</a></li>
+    <li class="list-group-item" ng-if="company.web.vimeo"><strong>Vimeo: </strong> <a href="">{{company.web.vimeo}}</a></li>
+    <li class="list-group-item" ng-if="company.web.youtube"><strong>YouTube: </strong> <a href="">{{company.web.youtube}}</a></li>
+    <li class="list-group-item" ng-if="company.web.instagram"><strong>Instagram: </strong> <a href="">{{company.web.instagram}}</a></li>
+    <li class="list-group-item" ng-if="company.web.googleplus"><strong>GooglePlus: </strong> <a href="">{{company.web.googleplus}}</a></li>
+    <li class="list-group-item" ng-if="company.web.other"><strong>Other: </strong> <a href="">{{company.web.other}}</a></li>
+
+    <li class="list-group-item" ng-if="company.population"><strong>Population: </strong> {{company.population}}</li>
+    <li class="list-group-item" ng-if="company.brand"><strong>Brand: </strong> {{company.brand}}</li>
+    <li class="list-group-item" ng-if="company.type"><strong>Type: </strong> {{company.companyType}}</li>
+    <li class="list-group-item" ng-if="company.status"><strong>Status: </strong> {{company.status}}</li>
+
+    <li class="list-group-item" ng-if="company.address.main.street"><strong>Main - Street Address: </strong> {{company.address.main.street}}</li>
+    <li class="list-group-item" ng-if="company.address.main.city"><strong>Main - City: </strong> {{company.address.main.city}}</li>
+    <li class="list-group-item" ng-if="company.address.main.state"><strong>Main - State: </strong> {{company.address.main.state}}</li>
+    <li class="list-group-item" ng-if="company.address.main.zip"><strong>Main - Zip: </strong> {{company.address.main.zip}}</li>
+
+    <li class="list-group-item" ng-if="company.address.mailing.street"><strong>Mailing - Street Address: </strong> {{company.address.mailing.street}}</li>
+    <li class="list-group-item" ng-if="company.address.mailing.city"><strong>Mailing - City: </strong> {{company.address.mailing.city}}</li>
+    <li class="list-group-item" ng-if="company.address.mailing.state"><strong>Mailing - State: </strong> {{company.address.mailing.state}}</li>
+    <li class="list-group-item" ng-if="company.address.mailing.zip"><strong>Mailing - Zip: </strong> {{company.address.mailing.zip}}</li>
+
+    <li class="list-group-item" ng-if="company.address.other.street"><strong>Other - Street Address: </strong> {{company.address.other.street}}</li>
+    <li class="list-group-item" ng-if="company.address.other.city"><strong>Other - City: </strong> {{company.address.other.city}}</li>
+    <li class="list-group-item" ng-if="company.address.other.state"><strong>Other - State: </strong> {{company.address.other.state}}</li>
+    <li class="list-group-item" ng-if="company.address.other.zip"><strong>Other - Zip: </strong> {{company.address.other.zip}}</li>
+
+    <li class="list-group-item" ng-if="company.timezone"><strong>Timezone: </strong> {{company.timezone}}</li>
+    <li class="list-group-item" ng-if="company.notes"><strong>Notes: </strong> {{company.notes}}</li>
   </ul>
   <br>
   <h3>Contacts</h3>

@@ -2,47 +2,102 @@
 <form ng-submit="updateCompany()" ng-init="getCompany()">
   <div class="form-group">
     <label>Company</label>
-    <input type="text" class="form-control" name="company" ng-model="company.company" placeholder="Company">
+    <input type="text" class="form-control" name="email" ng-model="company.company" placeholder="Company">
   </div>
-  <div class="form-group">
-    <label>Email</label>
-    <input type="email" class="form-control" ng-model="company.email" name="email" placeholder="Email">
-  </div>
-  <div class="form-group">
+  <div id="social" class="form-group">
     <label>Phone</label>
-    <input type="text" class="form-control" name="phone" ng-model="company.phone"placeholder="Phone">
+    <select id="chooseSocial" ng-model='selection3' name="chooseSocial" class="form-control">
+      <option value="main">Main</option>
+      <option value="fax">Fax</option>
+    </select>
+      <input ng-show="selection3==='main'" type="text" class="form-control" name="main" ng-model="company.phone.main" placeholder="main">
+      <input ng-show="selection3==='fax'" type="text" class="form-control" name="fax" ng-model="company.phone.fax" placeholder="fax">
+  </div>
+  <div id="social" class="form-group">
+    <label>Email</label>
+    <select id="chooseSocial" ng-model='selection4' name="chooseSocial" class="form-control">
+      <option value="main">Main</option>
+      <option value="other">Other</option>
+    </select>
+      <input ng-show="selection4==='main'" type="text" class="form-control" name="main" ng-model="company.email.main" placeholder="main">
+      <input ng-show="selection4==='other'" type="text" class="form-control" name="other" ng-model="company.email.other" placeholder="other">
   </div>
   <div class="form-group">
-    <label>Web</label>
-    <input type="text" class="form-control" name="web" ng-model="company.web"placeholder="web">
+    <label>Url</label>
+    <input type="text" class="form-control" name="email" ng-model="company.url" placeholder="Url">
+  </div>
+  <div id="social" class="form-group">
+    <label>Social Media</label>
+    <select id="chooseSocial" ng-model='selection' name="chooseSocial" class="form-control">
+      <option value="Twitter">Twitter</option>
+      <option value="Facebook">Facebook</option>
+      <option value="Instagram">Instagram</option>
+      <option value="YouTube">YouTube</option>
+      <option value="Vimeo">Vimeo</option>
+      <option value="GooglePlus">GooglePlus</option>
+      <option value="Other">Other</option>
+    </select>
+      <input ng-show="selection==='Twitter'" type="text" class="form-control" name="twitter" ng-model="company.web.twitter" placeholder="Twitter">
+      <input ng-show="selection==='Facebook'" type="text" class="form-control" name="facebook" ng-model="company.web.facebook" placeholder="Facebook">
+      <input ng-show="selection==='Instagram'" type="text" class="form-control" name="instagram" ng-model="company.web.instagram" placeholder="Instagram">
+      <input ng-show="selection==='YouTube'" type="text" class="form-control" name="youtube" ng-model="company.web.youtube" placeholder="YouTube">
+      <input ng-show="selection==='Vimeo'" type="text" class="form-control" name="vimeo" ng-model="company.web.vimeo" placeholder="Vimeo">
+      <input ng-show="selection==='GooglePlus'" type="text" class="form-control" name="googleplus" ng-model="company.web.googleplus" placeholder="GooglePlus">
+      <input ng-show="selection==='Other'" type="text" class="form-control" name="other" ng-model="company.web.other" placeholder="Other">
+  </div>
+  <div id="social" class="form-group">
+    <label>Address</label>
+    <select id="chooseSocial" ng-model='selection6' name="chooseSocial" class="form-control">
+      <option value="main">Main</option>
+      <option value="mailing">Mailing</option>
+      <option value="other">Other</option>
+    </select>
+      <input ng-show="selection6==='main'" type="text" class="form-control" name="street" ng-model="company.address.main.street" placeholder="street">
+      <input ng-show="selection6==='main'" type="text" class="form-control" name="city" ng-model="company.address.main.city" placeholder="city">
+      <input ng-show="selection6==='main'" type="text" class="form-control" name="state" ng-model="company.address.main.state" placeholder="state">
+      <input ng-show="selection6==='main'" type="text" class="form-control" name="zip" ng-model="company.address.main.zip" placeholder="zip">
+
+      <input ng-show="selection6==='mailing'" type="text" class="form-control" name="street" ng-model="company.address.mailing.street" placeholder="street">
+      <input ng-show="selection6==='mailing'" type="text" class="form-control" name="city" ng-model="company.address.mailing.city" placeholder="city">
+      <input ng-show="selection6==='mailing'" type="text" class="form-control" name="state" ng-model="company.address.mailing.state" placeholder="state">
+      <input ng-show="selection6==='mailing'" type="text" class="form-control" name="zip" ng-model="company.address.mailing.zip" placeholder="zip">
+
+      <input ng-show="selection6==='other'" type="text" class="form-control" name="street" ng-model="company.address.other.street" placeholder="street">
+      <input ng-show="selection6==='other'" type="text" class="form-control" name="city" ng-model="company.address.other.city" placeholder="city">
+      <input ng-show="selection6==='other'" type="text" class="form-control" name="state" ng-model="company.address.other.state" placeholder="state">
+      <input ng-show="selection6==='other'" type="text" class="form-control" name="zip" ng-model="company.address.other.zip" placeholder="zip">
+  </div>
+  <div class="form-group">
+    <label>Time Zone</label>
+    <input type="text" class="form-control" name="brand" ng-model="company.timezone" placeholder="Time Zone">
   </div>
   <div class="form-group">
     <label>Population</label>
     <input type="text" class="form-control" name="population" ng-model="company.population" placeholder="Population">
   </div>
-  <div class="form-group">
-    <label>Brand</label>
-    <input type="text" class="form-control" name="brand" ng-model="company.brand" placeholder="Brand">
+  <div id="social" class="form-group">
+    <label>Type</label>
+    <select ng-model='company.companyType' class="form-control">
+      <option value="city">City</option>
+      <option value="county">County</option>
+      <option value="state">State</option>
+      <option value="educational">Educational</option>
+      <option value="vendor">Vendor</option>
+      <option value="reseller">Reseller</option>
+      <option value="Other">Other</option>
+    </select>
   </div>
   <div class="form-group">
-    <label>Street Address</label>
-    <input type="text" class="form-control" name="street" ng-model="company.address.street" placeholder="Street Address">
+    <label>Status</label>
+    <select class="form-control" ng-model="company.status">
+      <option value="Active">Active</option>
+      <option value="Inactive">Inactive</option>
+    </select>
   </div>
-  <div class="form-group">
-    <label>City</label>
-    <input type="text" class="form-control" name="city" ng-model="company.address.city" placeholder="City">
-  </div>
-  <div class="form-group">
-    <label>State</label>
-    <input type="text" class="form-control" name="state" ng-model="company.address.state" placeholder="State">
-  </div>
-  <div class="form-group">
-    <label>Zip</label>
-    <input type="text" class="form-control" name="zip" ng-model="company.address.zip" placeholder="Zipcode">
-  </div>
-  <div class="form-group">
+
+   <div class="form-group">
     <label>Notes</label>
-    <input type="text" class="form-control" name="notes" ng-model="company.notes"placeholder="Notes">
+    <textarea type="text" class="form-control" name="notes" ng-model="company.notes" placeholder="Notes"></textarea>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
