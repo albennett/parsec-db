@@ -108,11 +108,11 @@ body {
 
 .navbar-inverse {
   background-color: white;
-  border-bottom: gray medium solid;
+  border-bottom: gray thin solid;
 }
 
 .navbar-inverse .navbar-colapse{
-  border-bottom: gray medium solid;
+  border-bottom: gray thin solid;
   background-color: white;
 }
 
@@ -122,4 +122,8 @@ body {
 
 .top-spacing{
   margin-top: 10px;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus{
+  color: #fd4f4e;;
 }

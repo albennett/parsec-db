@@ -1,24 +1,23 @@
 <h2 class="sub-header">Companies</h2>
 <div class="table-responsive" ng-init="getCompanies()">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Company</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="company in companies">
-      <td>{{company._id}}</td>
-      <td>{{company.company}}</td>
-      <td>{{company.phone.main}}</td>
-      <td>{{company.email.main}}</td>
-      <td><a href="#/companies/details/{{company._id}}" class="btn btn-primary">Details</a> <a href="#/companies/edit/{{company._id}}" class="btn btn-default">Edit</a> <button id="deleteCompany" ng-click="deleteCompany(company._id)" class="btn btn-danger">Delete</a></td>
-    </tr>
-
-  </tbody>
-</table>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Company</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="company in companies">
+        <td>{{company._id}}</td>
+        <td>{{company.company}}</td>
+        <td>{{company.phone.main}}</td>
+        <td>{{company.email.main}}</td>
+        <td><a href="#/companies/details/{{company._id}}" class="btn btn-primary">Details</a> <a href="#/companies/edit/{{company._id}}" class="btn btn-default">Edit</a> <button id="deleteCompany" ng-click="deleteCompany(company._id)" class="btn btn-danger">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
