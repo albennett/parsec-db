@@ -9,6 +9,36 @@
     <input type="text" class="form-control" ng-model="contact.last_name" name="last_name" placeholder="Last Name">
   </div>
   <div class="form-group">
+    <label>Phoentic</label>
+    <input type="text" class="form-control" ng-model="contact.phoentic" name="phoentic" placeholder="Phoentic">
+  </div>
+  <div class="form-group">
+    <label>Nickname</label>
+    <input type="text" class="form-control" ng-model="contact.nickname" name="nickname" placeholder="Nickname">
+  </div>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" ng-model="contact.title" name="title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label>Department</label>
+    <input type="text" class="form-control" ng-model="contact.department" name="department" placeholder="Department">
+  </div>
+  <div class="form-group">
+    <label>Url</label>
+    <input type="text" class="form-control" ng-model="contact.url" name="url" placeholder="Url">
+  </div>
+  <div class="form-group">
+    <label>Role</label>
+    <select class="form-control" ng-model="contact.role">
+      <option value="Primary">Primary</option>
+      <option value="Accounting">Accounting</option>
+      <option value="Network">Network</option>
+      <option value="Video">Video</option>
+      <option value="Agenda">Agenda</option>
+    </select>
+  </div>
+  <div class="form-group">
     <label>Company</label>
     <select class="form-control" ng-model="contact.company_id">
       <option ng-repeat="company in companies" value="{{company._id}}">
@@ -16,18 +46,67 @@
       </option>
     </select>
   </div>
-  <div class="form-group">
+  <div id="social" class="form-group">
     <label>Email</label>
-    <input type="text" class="form-control" name="email" ng-model="contact.email"placeholder="Email">
+    <select id="chooseSocial" ng-model='selection4' name="chooseSocial" class="form-control">
+      <option value="main">Main</option>
+      <option value="other">Other</option>
+    </select>
+      <input ng-show="selection4==='main'" type="text" class="form-control top-spacing" name="main" ng-model="contact.email.main" placeholder="main">
+      <input ng-show="selection4==='other'" type="text" class="form-control top-spacing" name="other" ng-model="contact.email.other" placeholder="other">
   </div>
-  <div class="form-group">
+  <div id="social" class="form-group">
     <label>Phone</label>
-    <input type="text" class="form-control" name="due" ng-model="contact.phone"placeholder="Phone">
+    <select id="chooseSocial" ng-model='selection3' name="chooseSocial" class="form-control">
+      <option value="main">Main</option>
+      <option value="fax">Fax</option>
+    </select>
+      <input ng-show="selection3==='main'" type="text" class="form-control top-spacing" name="main" ng-model="contact.phone.main" placeholder="main">
+      <input ng-show="selection3==='fax'" type="text" class="form-control top-spacing" name="fax" ng-model="contact.phone.fax" placeholder="fax">
   </div>
-  <div class="form-group">
-    <label>Role</label>
-    <input type="text" class="form-control" name="due" ng-model="contact.role"placeholder="Role">
+  <div id="social" class="form-group">
+    <label>Social Media</label>
+    <select id="chooseSocial" ng-model='selection' name="chooseSocial" class="form-control">
+      <option value="Twitter">Twitter</option>
+      <option value="Facebook">Facebook</option>
+      <option value="Instagram">Instagram</option>
+      <option value="YouTube">YouTube</option>
+      <option value="Vimeo">Vimeo</option>
+      <option value="GooglePlus">GooglePlus</option>
+      <option value="Other">Other</option>
+    </select>
+      <input ng-show="selection==='Twitter'" type="text" class="form-control top-spacing" name="twitter" ng-model="contact.web.twitter" placeholder="Twitter">
+      <input ng-show="selection==='Facebook'" type="text" class="form-control top-spacing" name="facebook" ng-model="contact.web.facebook" placeholder="Facebook">
+      <input ng-show="selection==='Instagram'" type="text" class="form-control top-spacing" name="instagram" ng-model="contact.web.instagram" placeholder="Instagram">
+      <input ng-show="selection==='YouTube'" type="text" class="form-control top-spacing" name="youtube" ng-model="contact.web.youtube" placeholder="YouTube">
+      <input ng-show="selection==='Vimeo'" type="text" class="form-control top-spacing" name="vimeo" ng-model="contact.web.vimeo" placeholder="Vimeo">
+      <input ng-show="selection==='GooglePlus'" type="text" class="form-control top-spacing" name="googleplus" ng-model="contact.web.googleplus" placeholder="GooglePlus">
+      <input ng-show="selection==='Other'" type="text" class="form-control top-spacing" name="other" ng-model="contact.web.other" placeholder="Other">
   </div>
+
+  <div id="social" class="form-group">
+    <label>Address</label>
+    <select id="chooseSocial" ng-model='selection6' name="chooseSocial" class="form-control">
+      <option value="main">Main</option>
+      <option value="mailing">Mailing</option>
+      <option value="other">Other</option>
+    </select>
+      <input ng-show="selection6==='main'" type="text" class="form-control top-spacing" name="street" ng-model="contact.address.main.street" placeholder="street">
+      <input ng-show="selection6==='main'" type="text" class="form-control top-spacing" name="city" ng-model="contact.address.main.city" placeholder="city">
+      <input ng-show="selection6==='main'" type="text" class="form-control top-spacing" name="state" ng-model="contact.address.main.state" placeholder="state">
+      <input ng-show="selection6==='main'" type="text" class="form-control top-spacing" name="zip" ng-model="contact.address.main.zip" placeholder="zip">
+
+      <input ng-show="selection6==='mailing'" type="text" class="form-control top-spacing" name="street" ng-model="contact.address.mailing.street" placeholder="street">
+      <input ng-show="selection6==='mailing'" type="text" class="form-control top-spacing" name="city" ng-model="contact.address.mailing.city" placeholder="city">
+      <input ng-show="selection6==='mailing'" type="text" class="form-control top-spacing" name="state" ng-model="contact.address.mailing.state" placeholder="state">
+      <input ng-show="selection6==='mailing'" type="text" class="form-control top-spacing" name="zip" ng-model="contact.address.mailing.zip" placeholder="zip">
+
+      <input ng-show="selection6==='other'" type="text" class="form-control top-spacing" name="street" ng-model="contact.address.other.street" placeholder="street">
+      <input ng-show="selection6==='other'" type="text" class="form-control top-spacing" name="city" ng-model="contact.address.other.city" placeholder="city">
+      <input ng-show="selection6==='other'" type="text" class="form-control top-spacing" name="state" ng-model="contact.address.other.state" placeholder="state">
+      <input ng-show="selection6==='other'" type="text" class="form-control top-spacing" name="zip" ng-model="contact.address.other.zip" placeholder="zip">
+  </div>
+
   <div class="form-group">
     <label>Status</label>
     <select class="form-control" ng-model="contact.status">
@@ -35,6 +114,19 @@
       <option value="Inactive">Inactive</option>
     </select>
   </div>
+
+  <div id="social" class="form-group">
+    <label>Reminders</label>
+    <select id="chooseSocial" ng-model='selection7' name="chooseSocial" class="form-control">
+      <option value="birthday">Birthday</option>
+      <option value="anniversary">Anniversary</option>
+      <option value="other">Other</option>
+    </select>
+      <input ng-show="selection7==='birthday'" type="date" class="form-control top-spacing" name="birthday" ng-model="contact.reminders.birthday" placeholder="birthday">
+      <input ng-show="selection7==='anniversary'" type="date" class="form-control top-spacing" name="anniversary" ng-model="contact.reminders.anniversary" placeholder="anniversary">
+      <input ng-show="selection7==='other'" type="date" class="form-control top-spacing" name="other" ng-model="contact.reminders.other" placeholder="other">
+  </div>
+
   <div class="form-group">
     <label>Notes</label>
     <textarea type="text" class="form-control" name="notes" ng-model="contact.notes" placeholder="Notes"></textarea>

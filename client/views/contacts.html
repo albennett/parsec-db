@@ -15,7 +15,7 @@
         <td>{{contact._id}}</td>
         <td>{{contact.first_name}} {{contact.last_name}}</td>
         <td>{{contact.company.company}}</td>
-        <td>{{contact.email}}</td>
+        <td>{{contact.email.main}}</td>
         <td>{{contact.role}}</td>
         <td><a href="#/contacts/details/{{contact._id}}" class="btn btn-primary">Details</a> <a href="#/contacts/edit/{{contact._id}}" class="btn btn-default">Edit</a> <button ng-click="deleteContact(contact._id)" class="btn btn-danger">Delete</a></td>
       </tr>

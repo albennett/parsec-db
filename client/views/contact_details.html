@@ -4,11 +4,45 @@
       <h3>Contact Info</h3>
       <ul class="list-group">
         <li class="list-group-item">Name: {{contact.first_name}} {{contact.last_name}}</li>
-        <li class="list-group-item">Email: {{contact.email}}</li>
-        <li class="list-group-item">Role: {{contact.role}}</li>
-        <li class="list-group-item">Status: {{contact.status}}</li>
-        <li class="list-group-item">Phone: {{contact.phone}}</li>
-        <li class="list-group-item">Notes: {{contact.notes}}</li>
+        <li class="list-group-item" ng-if="contact.nickname">Nickname: {{contact.nickname}}</li>
+        <li class="list-group-item" ng-if="contact.phoentic">Phoentic: {{contact.phoentic}}</li>
+        <li class="list-group-item" ng-if="contact.department">Department: {{contact.department}}</li>
+        <li class="list-group-item" ng-if="contact.title">Title: {{contact.title}}</li>
+        <li class="list-group-item" ng-if="contact.role">Role: {{contact.role}}</li>
+        <li class="list-group-item" ng-if="contact.email.main"><strong>Email: </strong> {{contact.email.main}}</li>
+        <li class="list-group-item" ng-if="contact.email.other"><strong>Other Email: </strong> {{contact.email.other}}</li>
+        <li class="list-group-item" ng-if="contact.phone.main"><strong>Main Phone: </strong> {{contact.phone.main}}</li>
+        <li class="list-group-item" ng-if="contact.phone.fax"><strong>Fax: </strong> {{contact.phone.fax}}</li>
+        <li class="list-group-item" ng-if="contact.url">Url: {{contact.url}}</li>
+
+        <li class="list-group-item" ng-if="contact.web.facebook"><strong>Facebook: </strong> <a href="">{{contact.web.facebook}}</a></li>
+        <li class="list-group-item" ng-if="contact.web.twitter"><strong>Twitter: </strong> <a href="">{{contact.web.twitter}}</a></li>
+        <li class="list-group-item" ng-if="contact.web.vimeo"><strong>Vimeo: </strong> <a href="">{{contact.web.vimeo}}</a></li>
+        <li class="list-group-item" ng-if="contact.web.youtube"><strong>YouTube: </strong> <a href="">{{contact.web.youtube}}</a></li>
+        <li class="list-group-item" ng-if="contact.web.instagram"><strong>Instagram: </strong> <a href="">{{contact.web.instagram}}</a></li>
+        <li class="list-group-item" ng-if="contact.web.googleplus"><strong>GooglePlus: </strong> <a href="">{{contact.web.googleplus}}</a></li>
+        <li class="list-group-item" ng-if="contact.web.other"><strong>Other: </strong> <a href="">{{contact.web.other}}</a></li>
+
+        <li class="list-group-item" ng-if="contact.address.main.street"><strong>Main - Street Address: </strong> {{contact.address.main.street}}</li>
+        <li class="list-group-item" ng-if="contact.address.main.city"><strong>Main - City: </strong> {{contact.address.main.city}}</li>
+        <li class="list-group-item" ng-if="contact.address.main.state"><strong>Main - State: </strong> {{contact.address.main.state}}</li>
+        <li class="list-group-item" ng-if="contact.address.main.zip"><strong>Main - Zip: </strong> {{contact.address.main.zip}}</li>
+
+        <li class="list-group-item" ng-if="contact.address.mailing.street"><strong>Mailing - Street Address: </strong> {{contact.address.mailing.street}}</li>
+        <li class="list-group-item" ng-if="contact.address.mailing.city"><strong>Mailing - City: </strong> {{contact.address.mailing.city}}</li>
+        <li class="list-group-item" ng-if="contact.address.mailing.state"><strong>Mailing - State: </strong> {{contact.address.mailing.state}}</li>
+        <li class="list-group-item" ng-if="contact.address.mailing.zip"><strong>Mailing - Zip: </strong> {{contact.address.mailing.zip}}</li>
+
+        <li class="list-group-item" ng-if="contact.address.other.street"><strong>Other - Street Address: </strong> {{contact.address.other.street}}</li>
+        <li class="list-group-item" ng-if="contact.address.other.city"><strong>Other - City: </strong> {{contact.address.other.city}}</li>
+        <li class="list-group-item" ng-if="contact.address.other.state"><strong>Other - State: </strong> {{contact.address.other.state}}</li>
+        <li class="list-group-item" ng-if="contact.address.other.zip"><strong>Other - Zip: </strong> {{contact.address.other.zip}}</li>
+
+        <li class="list-group-item" ng-if="contact.reminders.birthday"><strong>Birthday: </strong> {{contact.reminders.birthday}}</li>
+        <li class="list-group-item" ng-if="contact.reminders.anniversary"><strong>Anniversary: </strong> {{contact.reminders.anniversary}}</li>
+        <li class="list-group-item" ng-if="contact.reminders.other"><strong>Other: </strong> {{contact.reminders.other}}</li>
+        <li class="list-group-item" ng-if="contact.status">Status: {{contact.status}}</li>
+        <li class="list-group-item" ng-if="contact.notes">Notes: {{contact.notes}}</li>
       </ul>
     </div>
     <div class="col-md-4">
@@ -21,10 +55,10 @@
   <div class="col-md-12">
       <h4> {{contact.company.company}}</h4>
       <ul class="list-group">
-        <li class="list-group-item">{{contact.company.email}}</li>
-        <li class="list-group-item">{{contact.company.phone}}</li>
+        <li class="list-group-item">{{contact.company.email.main}}</li>
+        <li class="list-group-item">{{contact.company.phone.main}}</li>
         <li class="list-group-item">{{contact.company.population}}</li>
-        <li class="list-group-item">{{contact.company.reseller}}</li>
+        <li class="list-group-item">{{contact.company.type}}</li>
       </ul>
     </div>
   </div>

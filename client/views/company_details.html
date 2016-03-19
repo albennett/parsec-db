@@ -56,7 +56,7 @@
               <td>{{contact._id}}</td>
                 <td>{{contact.first_name}} {{contact.last_name}}</td>
                 <td>{{contact.role}}</td>
-                <td>{{contact.email}}</td>
+                <td>{{contact.main.email}}</td>
                 <td><a href="#/contacts/details/{{contact._id}}" class="btn btn-primary">Details</a> <a href="#/contacts/edit/{{contact._id}}" class="btn btn-default">Edit</a> <button id="deleteContact" class="btn btn-danger">Delete</a></td>
             </tr>
           </tbody>

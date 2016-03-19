@@ -27,6 +27,7 @@ router.get('/:id', (req, res) => {
 // Add contact
 router.post('/', (req, res) => {
   const contact = req.body;
+  console.log("contact", contact);
   Contact.addContact(contact, (err, contact) => {
     if(err){
       res.send(err);

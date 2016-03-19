@@ -12,16 +12,32 @@ const contactSchema = mongoose.Schema({
     required: true
   },
   last_name:{
-    type: String,
-    required: true
-  },
-  email:{
     type: String
   },
-  phone:{
+  nickname:{
+    type:String
+  },
+  title:{
     type: String
+  },
+  phoentic:{
+    type: String
+  },
+  department:{
+    type: String
+  },
+  email: {
+    main: String,
+    other: String
+  },
+  phone: {
+    main: String,
+    fax: String
   },
   role:{
+    type: String
+  },
+  url: {
     type: String
   },
   status: {
@@ -33,6 +49,40 @@ const contactSchema = mongoose.Schema({
   },
   notes:{
     type:String
+  },
+  web: {
+    facebook: String,
+    twitter: String,
+    youtube: String,
+    instagram: String,
+    vimeo: String,
+    googleplus: String,
+    other: String
+  },
+  address: {
+    main: {
+      street: String,
+      city: String,
+      state: String,
+      zip: String
+    },
+    mailing: {
+      street: String,
+      city: String,
+      state: String,
+      zip: String
+    },
+    other:{
+      street: String,
+      city: String,
+      state: String,
+      zip: String
+    }
+  },
+  reminders: {
+    birthday: Date,
+    anniversary: Date,
+    other: Date
   }
 });
 
@@ -51,34 +101,15 @@ module.exports.getContactById = (id, callback) => {
 
 // Add contact
 module.exports.addContact = (contact, callback) => {
-  const add = {
-    first_name: contact.first_name,
-    last_name: contact.last_name,
-    company: contact.company_id,
-    email: contact.email,
-    phone: contact.phone,
-    role: contact.role,
-    status: contact.status,
-    notes: contact.notes
-  }
-  Contact.create(add, callback);
+  contact.company = contact.company_id
+  Contact.create(contact, callback);
 }
 
 
 // Update contact
 module.exports.updateContact = (id, contact, options, callback) => {
   const query = {_id: id};
-  const update = {
-    first_name: contact.first_name,
-    last_name: contact.last_name,
-    company: contact.company_id,
-    email: contact.email,
-    phone: contact.phone,
-    role: contact.role,
-    status: contact.status,
-    notes: contact.notes
-  }
-  Contact.findOneAndUpdate(query, update, options, callback);
+  Contact.findOneAndUpdate(query, contact, options, callback);
 }
 
 // Remove contact
