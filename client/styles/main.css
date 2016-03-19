@@ -106,9 +106,15 @@ body {
   border-radius: 50%;
 }
 
-/*.navbar-inverse {
-  background-color: #fd4f4e;
-}*/
+.navbar-inverse {
+  background-color: white;
+  border-bottom: gray medium solid;
+}
+
+.navbar-inverse .navbar-colapse{
+  border-bottom: gray medium solid;
+  background-color: white;
+}
 
 .navbar-inverse .navbar-brand{
   color: #fd4f4e;;
