@@ -16,7 +16,7 @@ Create new repository and enter the following command:
 
 $ git clone https://github.com/albennett/parsec-db.git
 
-Run the following command to install all dependencies:
+Run the following command to install all  dependencies:
 
 $ npm install
 
