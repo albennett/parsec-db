@@ -21,7 +21,6 @@ angular.module('myApp').factory('AuthService',
 
       console.log("email in factory", email);
       var deferred = $q.defer();
-      // send a post request to the server
       $http.post('/user/access', {
         email: email
       })
@@ -50,8 +49,8 @@ angular.module('myApp').factory('AuthService',
         // handle success
         .then(function (data) {
           console.log("data:", data)
-          // const email = data.config.data.email;
-          // console.log("array", array);
+          const email = data.config.data.email;
+          console.log("array", array);
           // for (var i =0; i < array.length; i++ ) {
           //   if (email === array[i]) {
           //     user = true;
