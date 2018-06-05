@@ -2,15 +2,15 @@
 
 An individual project for Parsec Solutions
 
-##Goal
+## Goal
 
 Create a MEAN stack app that stores internal contact and company data
 
-##Technologies Used
+## Technologies Used
 
 Node, Express, Mongoose, Javascript, AngularJS, Jquery, Angular-Route, Bootstrap, Body-Parser, eslint, Nodemon
 
-##Installation
+## Installation
 
 Create new repository and enter the following command:
 
